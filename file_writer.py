@@ -1,14 +1,16 @@
+# Relocated these file operations to simplify the main program a little.
+
 import os
 from datetime import datetime
 
 def discord_notify(message):
     try:
-        __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+        __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))           # This is a way to open a file in the same directory as the main program. (Python can be started from a different "home directory", causing an error if only a simple file name is used.)
         f = open(os.path.join(__location__, 'messages.txt'), 'a')
         f.write(message)
         f.close()
     except:
-        print("Unable to write message for discord bot.")
+        print("Unable to write a message for the discord bot.")
 
 def append_log(message):
     now = datetime.now()
