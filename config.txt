@@ -1,0 +1,24 @@
+RasPi plant irrigator thingy
+----------------------------
+
+Here is where you configure plants.
+Format: Plant;plant name;soil sensor GPIO pin number;water pump GPIO number;time to pump water (in seconds)
+Example: "Plant;Tomato;16;10;5" -- this means a plant called Tomato uses GPIO pin 16 for the sensor, GPIO pin 10 for the pump, and each time it's watered, the pump runs for 5 seconds.
+Use BCM numbers for the pins (not BOARD numbers).
+Enter as many plants as you like. The limit is the number of available GPIO pins, so about 10 plants maximum.
+
+Plant;Maja-tomaatit;10;16;10
+Plant;Ruukkutomaatit;9;20;10
+Plant;Pihvitomaatit;11;21;7
+Plant;Pagels-chili;8;26;7
+
+----------
+
+GPIO pin number of the relay for powering the moisture sensors
+Sensor_power_gpio;25
+
+Debug mode - if set to "true", prints out more information when running the script. If everything works, this is not required.
+Debug_mode;true
+
+Discord bot enabled - if set to "true", sends notifications via a discord bot (see discordbot.py). If disabled, you don't need to set up a discord bot.
+Discord_bot_enabled;true
