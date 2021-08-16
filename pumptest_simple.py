@@ -9,6 +9,3 @@ GPIO.output(21,GPIO.LOW)
 time.sleep(5)
 GPIO.output(21,GPIO.HIGH)
 GPIO.cleanup()
-
-
-

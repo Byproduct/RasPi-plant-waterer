@@ -1,5 +1,3 @@
-#    user = await client.fetch_channel(842695135665324042)   #kasvimaankakarat
-
 import os
 import sys
 import discord     # requires pip install discord.py
@@ -36,17 +34,8 @@ async def on_ready():
     await user.send('I\'m alive!')
 
 
-# #   if someone sends the bot a message, pass it on to the owner privately
-# @discord_bot.event
-# async def on_message(message):
-#     if str(message.author) == "Byproduct#9084":
-#         received_message_report = "message received from " + str(message.author) + " at " + str(message.created_at) + ": " + str(message.content)
-#         user = await discord_bot.fetch_user(owner_id)
-#         await user.send(received_message_report)
-
-
-#   periodically check if there are any messages (left by other python programs) to send to the bot owner
-@tasks.loop(seconds=message_check_interval)  # set the interval for this check in the configuration file. There's probably no need to poke in the file system every second. Default interval is one minute.
+#   periodically check if there are any messages (left by other programs) to send to the bot owner
+@tasks.loop(seconds=message_check_interval)         # set this interval in the configuration file. There's probably no need to poke in the file system too often. Default interval is one minute.
 async def check_for_queued_messages():
     # if messages.txt exists, read it into one string and then delete the file
     try:
@@ -73,4 +62,4 @@ try:
     discord_bot.run(bot_token)
 except:
     print("Error connecting to discord (probably no network)")
-    sys.exit(0)
+    sys.exit(1)
