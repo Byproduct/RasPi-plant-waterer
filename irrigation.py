@@ -1,4 +1,4 @@
-# Raspberry pi water irrigator thingy
+# Raspberry Pi plant waterer thingy
 # This script is meant to run repeatedly and automatically, for example once per day using cron.
 # It scans moisture sensors, and runs water pumps if no moisture is detected.
 
@@ -15,7 +15,7 @@ discordbot = False          # If true, sends messages through discord. Specified
 sensor_power_gpio = 0
 
 try:
-    __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+    __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))       # This is a way to open a file in the same directory as the main program. (Python can be started from a different "home directory", causing an error if only a simple file name is used.)
     f = open(os.path.join(__location__, 'config.txt'), 'r')
     config_data = f.readlines()
 except:
@@ -70,7 +70,7 @@ def scan_moisture():
     if debugmode == True: print("Turning on power for sensors")
     GPIO.setup(sensor_power_gpio, GPIO.OUT)
     GPIO.output(sensor_power_gpio, GPIO.HIGH)
-    time.sleep(1)           # give the relay a second to activate
+    time.sleep(1)           # give the relay and sensors a second to activate
 
     plants_are_moist = True
     for plant in plants:
@@ -115,8 +115,8 @@ for plant in dry_plants:
     pump_water(plant)
     watered_plants.append(plant)
 
-# Check the moisture sensors again. If all report moist as they should, write the log and exit.
-time.sleep(2)
+# Wait for a few seconds for water to settle, then check the moisture sensors again. If all report moist as they should, write the log and exit.
+time.sleep(5)
 if debugmode == True: print("Watering done, checking sensors again:")
 dry_plants = scan_moisture()
 if not dry_plants:
@@ -138,5 +138,6 @@ if dry_plants:
     sys.exit(1)
 
 
-# this line should never be reached (both if statements above lead to an exit), but do a GPIO cleanup anyway just in case.
+# This line should never be reached (both if statements above lead to an exit), but end program with a GPIO cleanup anyway just in case.
+# Using GPIO can give errors/warnings if not "cleaned up" after use.
 GPIO.cleanup()
