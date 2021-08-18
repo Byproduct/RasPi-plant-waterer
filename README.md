@@ -1,4 +1,4 @@
-# Automatic plant watering with Raspberry Pi and Python
+# Automatic plant watering with Raspberry Pi and Python3
 
 See [Irrigator_tutorial.pdf](https://github.com/Byproduct/RasPi-plant-waterer/blob/main/Irrigator_tutorial.pdf) for documentation and tutorial. (You may need to download it instead of viewing on github.) 
 
