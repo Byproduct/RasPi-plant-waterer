@@ -1,6 +1,7 @@
 # Raspberry Pi plant waterer thingy
 # This script is meant to run repeatedly and automatically, for example once per day using cron.
 # It scans moisture sensors, and runs water pumps if no moisture is detected.
+# Requires Python 3, will not work on Python 2.
 
 import sys
 import os
