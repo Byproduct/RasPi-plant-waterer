@@ -1,6 +1,6 @@
 # Script to only test sensors and print their readings. 
 # Keeps the power on for a minute (scanning every 10 seconds) so you can adjust the moisture detection threshold with the physical screw.
-# Parts copied from the main program, hence some unnecessary code
+# Based on the main program configuration
 
 import sys
 import RPi.GPIO as GPIO

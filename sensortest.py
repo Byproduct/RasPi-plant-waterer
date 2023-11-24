@@ -1,5 +1,5 @@
 # Script to only test sensors and print their readings
-# Parts copied from the main program, hence some unnecessary code
+# Based on the main program configuration
 
 import sys
 import os

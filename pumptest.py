@@ -1,5 +1,5 @@
-# Script to only test pumps. Runs each pump for 5 seconds.
-# Parts copied from the main program, hence some unnecessary code
+# Script to only test pumps, based on the main program configuration. 
+# Runs each pump for 5 seconds.
 
 import RPi.GPIO as GPIO
 import time

@@ -14,7 +14,7 @@ def discord_notify(message):
 
 def append_log(message):
     now = datetime.now()
-    current_time = now.strftime("%Y-%m-%d, %H:%M:%S")       # A string containing current date and time, e.g. "2021-08-12, 01:17:33".
+    current_time = now.strftime("%Y-%m-%d, %H:%M:%S")
 
     logtext = "\n-----\n"
     logtext = logtext + current_time + "\n"
@@ -32,7 +32,7 @@ def append_log(message):
 
 def write_error(message):
     now = datetime.now()
-    current_time = now.strftime("%Y-%m-%d, %H:%M:%S")       # A string containing current date and time, e.g. "2021-08-12, 01:17:33".
+    current_time = now.strftime("%Y-%m-%d, %H:%M:%S")  
     errormessage = current_time + "\n" + message + "\nAfter addressing the error, remove this file to resume normal operation."
     try:
         __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
